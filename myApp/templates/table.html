@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block title %}Doctor Table{% endblock %}
+
+{% block content %}
+    <a href="{% url 'add_doctor' %}">
+        <button type="button">Add Doctor</button>
+    </a>
+    <br><br>
+
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Specialization</th>
+              <th>Actions</th>
+        </tr>
+        {% for doc in d %}
+        <tr>
+            <td>{{ doc.id }}</td>
+            <td>{{ doc.name }}</td>
+            <td>{{ doc.specialization }}</td>
+             <td>
+                <a href="{% url 'update_doctor' doc.id %}">
+                    <button type="button">Update</button>
+                </a>
+                <a href="{% url 'delete_doctor' doc.id %}" onclick="return confirm('Are you sure?');">
+                    <button type="button">Delete</button>
+                </a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

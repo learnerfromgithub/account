@@ -1,0 +1,37 @@
+{% extends 'basic.html' %}
+{%  block title %} Patient Table {% endblock %}
+{% block content%}
+    <h1> Patien Table</h1>
+    <a href="{%  url 'add_patient' %}">
+     <button type="button" >Add Patient</button>
+    </a>
+    <!-- {{p}} -->
+    <br><br>
+
+ <table border="1">
+    <tr>
+        <th>ID</th>
+         <th>Name</th>
+          <th>Age</th>
+           <th>Disease</th>
+            
+    </tr>
+    {% for pt in p %}
+    <tr>
+        <td> {{pt.id}}</td>
+         <td> {{pt.name}}</td>
+          <td> {{pt.age}}</td>
+           <td> {{pt.disease}}</td>
+           
+             
+    </tr>
+
+     {% endfor %}
+</table>
+    
+   
+  
+
+
+
+{% endblock %}

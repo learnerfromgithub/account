@@ -1,0 +1,43 @@
+{% extends 'base.html'%}
+{% block content %}
+
+<!-- <form method="post">   
+    {% csrf_token %}
+    <h2>Register</h2> -->
+
+    <!-- <div class="mb-3">
+        <label for="username" class="form-label">Username</label>
+        <input type="text" name="username" class="form-control" id="username" required>
+    </div> -->
+
+    <!-- <div class="mb-3">
+        <label for="email" class="form-label">Email address</label>
+        <input type="email" name="email" class="form-control" id="email" aria-describedby="emailHelp" required>
+      <br></br>
+    </div>
+
+    <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input type="password" name="password" class="form-control" id="password" required>
+    </div>
+
+    <p>Already have an account? <a href="{% url 'login' %}">Login</a></p>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form> -->
+<h2>Register</h2>
+<form method="POST">
+    {% csrf_token %}
+    <input type="email" name="email" placeholder="Email" required><br>
+    <input type="password" name="password" placeholder="Password" required><br>
+    <select name="role">
+        <option value="patient">Patient</option>
+        <option value="doctor">Teacher</option>
+        <option value="admin">Admin</option>
+    </select><br>
+      <p>Already have an account? <a href="{% url 'login' %}">Login</a></p>
+
+    <button type="submit">Register</button>
+</form>
+
+{% endblock %}
